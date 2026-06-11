@@ -24,8 +24,11 @@ bun run build      # output → dist/
 
 GitHub Pages, vía `.github/workflows/deploy.yml`. Cada push a `main` reconstruye el sitio.
 
-- **Mientras pyaserv.com no esté delegado**: el sitio responde en `https://undeadliner.github.io/pyaserv/`. El workflow exporta `BASE_PATH=/pyaserv/` para que las rutas internas funcionen bajo ese prefijo.
-- **Cuando pyaserv.com esté listo**: el `CNAME` ya está en repo. En Settings → Pages → Custom domain pegá `pyaserv.com`, marcá "Enforce HTTPS", y borra el `BASE_PATH` del workflow.
+- **Mientras pyaserv.com no esté delegado**: el sitio responde en `https://undeadliner.github.io/pyaserv/`. El workflow exporta `BASE_PATH=/pyaserv/` para que las rutas internas funcionen bajo ese prefijo. El archivo `CNAME` queda en la raíz del repo y Astro lo ignora — no afecta nada.
+- **Cuando pyaserv.com esté listo**, son tres cambios:
+  1. Mové `CNAME` desde la raíz a `public/CNAME` para que Astro lo copie a `dist/`.
+  2. Borrá el bloque `env: BASE_PATH=/pyaserv/` del workflow (las rutas vuelven a ser absolutas).
+  3. En **Settings → Pages → Custom domain** pegá `pyaserv.com` y marcá "Enforce HTTPS".
 
 ### Configuración DNS para pyaserv.com (cuando lo compres)
 
