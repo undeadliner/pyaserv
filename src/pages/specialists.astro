@@ -1,0 +1,129 @@
+---
+import Base from '~/layouts/Base.astro'
+
+interface Specialist {
+  readonly name: string
+  readonly title: string
+  readonly description: string
+  readonly initial: string
+  readonly barrio: string
+  readonly priceFromGs: number
+  readonly tags: ReadonlyArray<string>
+}
+
+const samples: ReadonlyArray<Specialist> = [
+  {
+    name: 'Carlos R.',
+    title: 'Electricista matriculado · 18 años',
+    description: 'Reparaciones, instalaciones nuevas, llaves térmicas. Garantía escrita. Asunción y alrededores.',
+    initial: 'C',
+    barrio: 'Villa Morra',
+    priceFromGs: 150000,
+    tags: ['Electricidad', 'Domicilio', '24 h'],
+  },
+  {
+    name: 'Mónica L.',
+    title: 'Traductora ES ⇄ EN ⇄ PT',
+    description: 'Documentos legales, certificados académicos, sitios web. Apostille en 48 h.',
+    initial: 'M',
+    barrio: 'Recoleta',
+    priceFromGs: 80000,
+    tags: ['Idiomas', 'Documentos', 'Remoto'],
+  },
+  {
+    name: 'Diego A.',
+    title: 'Diseñador gráfico + redes',
+    description: 'Identidad visual, contenido para Instagram, edición de video corto. Reuniones por Meet.',
+    initial: 'D',
+    barrio: 'Carmelitas',
+    priceFromGs: 250000,
+    tags: ['Diseño', 'Marketing', 'Remoto'],
+  },
+  {
+    name: 'Sofía G.',
+    title: 'Peluquera a domicilio',
+    description: 'Corte, color, alisado. Voy a tu casa con todo el equipo. Productos profesionales.',
+    initial: 'S',
+    barrio: 'Las Mercedes',
+    priceFromGs: 120000,
+    tags: ['Peluquería', 'Domicilio'],
+  },
+  {
+    name: 'Javier M.',
+    title: 'Plomero gasista',
+    description: 'Gas envasado, fugas, calefones. Trabajo limpio, dejo el lugar como lo encontré.',
+    initial: 'J',
+    barrio: 'Manorá',
+    priceFromGs: 180000,
+    tags: ['Plomería', 'Gas', 'Urgencia'],
+  },
+  {
+    name: 'Laura P.',
+    title: 'Profesora particular — matemática',
+    description: 'Bachillerato y primer año de universidad. Online o presencial en Asunción.',
+    initial: 'L',
+    barrio: 'Asunción centro',
+    priceFromGs: 60000,
+    tags: ['Educación', 'Online'],
+  },
+]
+
+const fmtGs = (n: number): string => `${n.toLocaleString('es-PY')} Gs`
+---
+<Base
+  title="Profesionales que ofrecen su trabajo"
+  description="Listado de profesionales en Paraguay. Filtrá por categoría y barrio. Sin comisiones."
+  active="specialists"
+>
+  <section class="ps-hero">
+    <h1>Profesionales en Paraguay</h1>
+    <p>Encontrá a quien necesitás. Cada perfil incluye contacto directo y reseñas reales.</p>
+  </section>
+
+  <form class="ps-filter-bar" role="search" aria-label="Filtrar profesionales">
+    <input type="search" name="q" placeholder="Buscar por servicio o nombre…" autocomplete="off" />
+    <select name="category" aria-label="Categoría">
+      <option value="">Todas las categorías</option>
+      <option>Electricidad</option>
+      <option>Plomería</option>
+      <option>Idiomas</option>
+      <option>Diseño</option>
+      <option>Educación</option>
+      <option>Peluquería</option>
+      <option>Marketing</option>
+    </select>
+    <select name="barrio" aria-label="Barrio">
+      <option value="">Todos los barrios</option>
+      <option>Villa Morra</option>
+      <option>Las Mercedes</option>
+      <option>Recoleta</option>
+      <option>Carmelitas</option>
+      <option>Manorá</option>
+      <option>Asunción centro</option>
+    </select>
+  </form>
+
+  <section class="ps-list" aria-label="Profesionales">
+    {samples.map((s) => (
+      <article class="ps-listing ps-listing--offer">
+        <header class="ps-listing__head">
+          <span class="ps-listing__avatar" aria-hidden="true">{s.initial}</span>
+          <div>
+            <div class="ps-listing__name">{s.name}</div>
+            <div class="ps-listing__meta">{s.barrio} · Desde {fmtGs(s.priceFromGs)}</div>
+          </div>
+        </header>
+        <h2 class="ps-listing__title">{s.title}</h2>
+        <p class="ps-listing__body">{s.description}</p>
+        <div class="ps-listing__tags">
+          {s.tags.map((t) => <span class="ps-tag">{t}</span>)}
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <p class="ps-banner">
+    ¿Sos profesional? Cuando lancemos las cuentas vas a poder crear tu perfil acá y recibir mensajes
+    directos de clientes. Por ahora, dejá tu interés en el GitHub del proyecto.
+  </p>
+</Base>

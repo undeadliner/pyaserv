@@ -1,0 +1,25 @@
+# build & deps
+dist/
+.astro/
+node_modules/
+.cache/
+.bun/
+
+# env
+.env
+.env.*
+!.env.example
+
+# typescript
+*.tsbuildinfo
+
+# logs / OS
+*.log
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
