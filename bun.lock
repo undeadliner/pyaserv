@@ -9,8 +9,8 @@
       "name": "@pyaserv/api",
       "version": "0.0.0",
       "dependencies": {
-        "@pya/auth": "*",
-        "@pya/shared": "*",
+        "@pya-platform/auth": "*",
+        "@pya-platform/shared": "*",
         "hono": "^4.6.0",
         "valibot": "^1.0.0",
       },
@@ -33,8 +33,8 @@
     },
   },
   "overrides": {
-    "@pya/auth": "file:../pya-platform/packages/auth",
-    "@pya/shared": "file:../pya-platform/packages/shared",
+    "@pya-platform/auth": "file:../pya-platform/packages/auth",
+    "@pya-platform/shared": "file:../pya-platform/packages/shared",
   },
   "packages": {
     "@astrojs/check": ["@astrojs/check@0.9.9", "", { "dependencies": { "@astrojs/language-server": "^2.16.7", "chokidar": "^4.0.3", "kleur": "^4.1.5", "yargs": "^17.7.2" }, "peerDependencies": { "typescript": "^5.0.0 || ^6.0.0" }, "bin": { "astro-check": "bin/astro-check.js" } }, "sha512-A5UW8uIuErLWEoRQvzgXpO1gTjUFtK8r7nU2Z7GewAMxUb7bPvpk11qaKKgxqXlHJWlAvaaxy+Xg28A6bmQ1Tg=="],
@@ -953,9 +953,9 @@
 
     "zwitch": ["zwitch@2.0.4", "", {}, "sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A=="],
 
-    "@pyaserv/api/@pya/auth": ["@pya/auth@file:../pya-platform/packages/auth", { "dependencies": { "@pya/shared": "workspace:*", "@simplewebauthn/server": "^13.3.0", "effect": "^3.10.0", "hono": "^4.6.0", "jose": "^5.9.0", "valibot": "^1.0.0" }, "peerDependencies": { "@cloudflare/workers-types": "^4.20240909.0" } }],
+    "@pyaserv/api/@pya-platform/auth": ["@pya-platform/auth@file:../pya-platform/packages/auth", { "dependencies": { "@pya-platform/shared": "workspace:*", "@simplewebauthn/server": "^13.3.0", "effect": "^3.10.0", "hono": "^4.6.0", "jose": "^5.9.0", "valibot": "^1.0.0" }, "peerDependencies": { "@cloudflare/workers-types": "^4.20240909.0" } }],
 
-    "@pyaserv/api/@pya/shared": ["@pya/shared@file:../pya-platform/packages/shared", { "dependencies": { "effect": "^3.10.0", "valibot": "^1.0.0" } }],
+    "@pyaserv/api/@pya-platform/shared": ["@pya-platform/shared@file:../pya-platform/packages/shared", { "dependencies": { "effect": "^3.10.0", "valibot": "^1.0.0" } }],
 
     "@rollup/pluginutils/estree-walker": ["estree-walker@2.0.2", "", {}, "sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w=="],
 
@@ -993,7 +993,7 @@
 
     "yaml-language-server/yaml": ["yaml@2.7.1", "", { "bin": { "yaml": "bin.mjs" } }, "sha512-10ULxpnOCQXxJvBgxsn9ptjq6uviG/htZKk9veJGhlqn3w/DxQ631zFF+nlQXLwmImeS5amR2dl2U8sg6U9jsQ=="],
 
-    "@pyaserv/api/@pya/auth/@pya/shared": ["@pya/shared@file:../pya-platform/packages/shared", {}],
+    "@pyaserv/api/@pya-platform/auth/@pya-platform/shared": ["@pya-platform/shared@file:../pya-platform/packages/shared", {}],
 
     "boxen/string-width/emoji-regex": ["emoji-regex@10.6.0", "", {}, "sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A=="],
 
